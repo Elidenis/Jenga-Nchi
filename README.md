@@ -35,7 +35,7 @@ https://github.com/Elidenis/Jenga-Nchi.git
 
 MIT License.
 
-Copyright (c) 2016
+Copyright (c) 2019
 _**Keith Mwangi**_
 _**David Mumo**_
 _**Eli Denis**_
