@@ -8,19 +8,29 @@
 body {
   text-align: center;
 }
-h1 {
-  font-weight: bold;
-}
-h2 {
-  font-weight: bold;
-  font-size: 24px;
 
+h1 {
+  color: #28a745;
 }
+.p20 {
+  font-size: 22px;
+}
+.p28 {
+  font-size: 34px;
+  font-weight: bold;
+}
+
 .p13 {
   font-size: 13px;
 }
 a {
-  color: blue;
+  text-decoration: none;
+}
+.nav-link {
+  color: black;
+}
+.search {
+  background-image: url('../images/search.jpg');
 }
 footer {
   background-color: gray;
