@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="utf-8">
   <title>Jenga Nchi</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
   <header role="banner">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -15,17 +13,16 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarsExample05">
           <ul class="navbar-nav ml-auto pl-lg-5 pl-0 text-black-50">
             <li class="nav-item">
               <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="categories.html">Categories</a>
+              <a class="nav-link active" href="categories.html">For Candidates</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="employer.html">Employee</a>
+              <a class="nav-link" href="employees.html">For Employers</a>
             </li>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item btn-success">
@@ -36,7 +33,6 @@
       </div>
     </nav>
   </header>
-
     <div class="site-section">
       <div class="container">
         <div class="row">
@@ -127,47 +123,46 @@
           </div>
         </div>
       </div>
+<div class="container">
+      <div class="form-group" id="address">
+          <h3>Delivery Address</h3>
+          <form id="address-form">
+            <div class="row">
+              <div class="col">
+                <label for="first-name">First Name</label><input required type="text" class="form-control address-spacing">
+              </div>
+              <div class="col">
+                <label for="last-name">Last Name</label><input required type="text" class="form-control address-spacing">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="street-address">Address</label><input required type="text" class="form-control" id="street-add">
+              </div>
+              <div class="col">
+                <label for="city-name">City</label><input required type="text" class="form-control" id="city-add">
+              </div>
+              <div class="col">
+                <label for="county-name">County</label>
+                <select required class="form-control delivery-address" id="county-select">
+                  <option></option>
+                  <option>Nairobi</option>
+                  <option>Nakuru</option>
+                  <option>Mombasa</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" id="order-proceed-btn">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
     <footer id="about" class="site-footer bg-dark" role="contentinfo">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-4 mb-5">
             <h3>About Us</h3>
-            <p>Jenga Nchi is your one stop shop for the largest selection of open jobs, insights into the East African job market, tailored career advice and skill training. With us, you get exactly what you need to pursue your professional goals.
-
-</p>
-            <ul class="list-unstyled footer-link d-flex footer-social">
-              <li><a href="#" class="p-2"><span class="fa fa-twitter"></span></a></li>
-              <li><a href="#" class="p-2"><span class="fa fa-facebook"></span></a></li>
-              <li><a href="#" class="p-2"><span class="fa fa-linkedin"></span></a></li>
-              <li><a href="#" class="p-2"><span class="fa fa-instagram"></span></a></li>
-            </ul>
-          </div>
-          <div class="col-md-5 mb-5">
-            <h3>Contact Info</h3>
-            <ul class="list-unstyled footer-link">
-              <li class="d-block">
-                <span class="d-block">Address:</span>
-                <span class="text-white">Nairobi 709</span></li>
-              <li class="d-block"><span class="d-block">Telephone:</span><span class="text-white">+2547 678 543</span></li>
-              <li class="d-block"><span class="d-block">Email:</span><span class="text-white">daviemumo37@gmail.com,adriankeith15@gmail.com,franciskimari@gmail.com,dicksonmacharia@gmail.com</span></li>
-            </ul>
-          </div>
-          <div class="col-md-3 mb-5">
-            <h3>Quick Menu</h3>
-            <ul class="list-unstyled footer-link">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">For Category</a></li>
-              <li><a href="#">For Employee</a></li>
-              <li><a href="#">About</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-</body>
-
-</html>
-</p>
+            <p class="mb-5"></p>
             <ul class="list-unstyled footer-link d-flex footer-social">
               <li><a href="#" class="p-2"><span class="fa fa-twitter"></span></a></li>
               <li><a href="#" class="p-2"><span class="fa fa-facebook"></span></a></li>
@@ -198,5 +193,6 @@
       </div>
     </footer>
 </body>
-
+<script src="js/scripts.js"></script>
 </html>
+Collaps
