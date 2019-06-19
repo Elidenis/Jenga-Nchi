@@ -25,7 +25,7 @@
               <a class="nav-link active" href="categories.html">For Candidates</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="employer.html">For Employers</a>
+              <a class="nav-link" href="employees.html">For Employers</a>
             </li>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item btn-success">
@@ -127,12 +127,48 @@
           </div>
         </div>
       </div>
+<div class="container">
+      <div class="form-group" id="address">
+          <h3>Delivery Address</h3>
+          <form id="address-form">
+            <div class="row">
+              <div class="col">
+                <label for="first-name">First Name</label><input required type="text" class="form-control address-spacing">
+              </div>
+              <div class="col">
+                <label for="last-name">Last Name</label><input required type="text" class="form-control address-spacing">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="street-address">Address</label><input required type="text" class="form-control" id="street-add">
+              </div>
+              <div class="col">
+                <label for="city-name">City</label><input required type="text" class="form-control" id="city-add">
+              </div>
+              <div class="col">
+                <label for="county-name">County</label>
+                <select required class="form-control delivery-address" id="county-select">
+                  <option></option>
+                  <option>Nairobi</option>
+                  <option>Nakuru</option>
+                  <option>Mombasa</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" id="order-proceed-btn">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
     <footer id="about" class="site-footer bg-dark" role="contentinfo">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-4 mb-5">
             <h3>About Us</h3>
-            <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus et dolor blanditiis consequuntur ex voluptates perspiciatis omnis unde minima expedita.</p>
+            <p class="mb-5"></p>
             <ul class="list-unstyled footer-link d-flex footer-social">
               <li><a href="#" class="p-2"><span class="fa fa-twitter"></span></a></li>
               <li><a href="#" class="p-2"><span class="fa fa-facebook"></span></a></li>
@@ -163,5 +199,5 @@
       </div>
     </footer>
 </body>
-
+<script src="js/scripts.js"></script>
 </html>
