@@ -40,7 +40,8 @@ _This web application will gather input from the user to search for jobs._
 
 ## link
 https://github.com/Elidenis/Jenga-Nchi.git
-https://media.giphy.com/media/11JTxkrmq4bGE0/giphy.gif
+
+![](https://media.giphy.com/media/11JTxkrmq4bGE0/giphy.gif)
 
 ### License
 
