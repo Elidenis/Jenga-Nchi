@@ -3,7 +3,7 @@
 ## By
 * Keith Mwangi
 * David Mumo
-* Francis Kirari
+* Francis Kimari
 * Dickson Macharia
 
 ## Description
@@ -20,7 +20,7 @@ _This web application will gather input from the user to search for jobs._
 * daviemumo37@gmail.com
 * adriankeith15@gmail.com
 * franciskimari@gmail.com
-* dicksonmacharia@gmail.com
+* dikkymccria@gmail.com
 
 
 ## Behaviour driven development
