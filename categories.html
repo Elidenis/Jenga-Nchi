@@ -3,7 +3,31 @@
 <head>
   <meta charset="utf-8">
   <title>Jenga Nchi</title>
+  <style>
+		a { color: #0068D2; cursor: pointer; }
+		a:link, a:visited { text-decoration: none; color: #0068D2; }
+		a:hover, a:active { text-decoration: underline; color: #0068D2; }
+		body { font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", sans-serif; }
+
+		#contacts-table { border-collapse: collapse; }
+		#contacts-table, #contacts-table th, #contacts-table td { padding: 8px 16px; text-align: left; border: 0px solid #B9BABE; }
+		#contacts-table th { font-weight: bold; font-size: 14px; color: #29344B; }
+		#contacts-table td { color: #000; }
+		#contacts-table tr:nth-child(2n) { background: #E8EDFF; }
+
+		#contacts-form { padding: 10px; }
+		.text input, .button input { padding: 5px; margin: 0; border: 1px solid #ccc; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }
+		#contacts-form .item { margin: 3px 0; }
+		#contacts-form label, #contacts-form .field { display: inline-block; color: #0C0B07; }
+		#contacts-form label { width: 110px; font-weight: bold; text-align: right; color: #666; }
+		#contacts-form .text input { width: 176px; padding: 3px; }
+		#contacts-form .button { display: inline-block; }
+		#contacts-form .button-wrapper { padding-left: 113px; }
+		.button input { padding: 4px 8px; color: #343434; background-color: #fdfdfd; background: -moz-linear-gradient(#fdfdfd, #e1e1e1); background: -webkit-gradient(linear, 0 0, 0 100%, from(#fdfdfd), to(#e1e1e1)); }
+		.button-default input { font-weight: bold; color: #fff; background-color: #7ca0c7; background: -moz-linear-gradient(#acc6e1, #7ca0c7); background: -webkit-gradient(linear, 0 0, 0 100%, from(#acc6e1), to(#7ca0c7)); border-color: #5b80b2; }
+	</style>
   <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 <body>
   <header role="banner">
@@ -19,10 +43,7 @@
               <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="categories.html">For Candidates</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="employees.html">For Employers</a>
+              <a class="nav-link active" href="categories.html">Jobs</a>
             </li>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item btn-success">
@@ -33,167 +54,266 @@
       </div>
     </nav>
   </header>
-    <div class="site-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 mx-auto text-center mb-5 section-heading"><br>
-            <h2 class="mb-5">Categories</h2>
-          </div>
+  <div class="container">
+		<div class="row">
+      <h2>For Candidates</h2><br>
+    </div>
+    <div class="row">
+			<p>Looking for a job?</p>
+    </div>
+    <div class="row">
+			<span class="btn btn-primary btn-lg" id="employer">Apply for job</span>
+		</div>
+		<div class="row" id="cont">
+			<p>Please fill the following form;</p>
+			<form id="contacts-form">
+	  		<div class="item text">
+	  			<label>First name:</label>
+	  			<div class="field"><input type="text" name="first_name" /></div>
+	  		</div>
+	  		<div class="item text">
+	  			<label>Last name:</label>
+	  			<div class="field"><input type="text" name="last_name" /></div>
+	  		</div>
+	  		<div class="item text">
+	  			<label>Specification</label>
+	  			<div class="field"><input type="text" name="specification" /></div>
+	  		</div>
+				<div class="item text">
+	  			<label>Mobile:</label>
+	  			<div class="field"><input type="text" name="mobile" /></div>
+	  		</div>
+				<div class="item text">
+	  			<label>Email:</label>
+	  			<div class="field"><input type="text" name="email" /></div>
+	  		</div>
+				<div class="item text">
+	  			<label>City:</label>
+	  			<div class="field"><input type="text" name="city" /></div>
+	  		</div>
+				<div class="item text">
+	  			<label>County:</label>
+	  			<div class="field"><input type="text" name="county" /></div>
+	  		</div>
+	  		<div class="button-wrapper">
+	  			<div class="item button">
+	  				<div class="field"><input type="button" id="contacts-op-discard" value="Discard" /></div>
+	  			</div>
+	  			<div class="item button button-default">
+	  				<div class="field"><input type="submit" id="contacts-op-save" value="Save" /></div>
+	  			</div>
+	  		</div>
+	  		<input type="hidden" name="id_entry" value="0" />
+	  	</form>
+		</div>
+  </div>
+  <div class="container">
+		<div class="row">
+      <h2>For Employers</h2><br>
+    </div>
+    <div class="row">
+			<p>Looking for an employee</p>
+    </div>
+    <div class="row">
+			<div class="button-wrapper">
+  			<div class="item button">
+  				<span class="btn btn-primary btn-lg" id="employee">Search for employee</span>
+  			</div>
+  		</div>
+		</div>
+		<div class="row">
+			<p>Here is a list of people looking for employment.</p>
+			<table id="contacts-table">
+	  		<tr id="contacts-head">
+	  			<th>ID</th>
+	  			<th>First name</th>
+	  			<th>Last name</th>
+					<th>Specification</th>
+					<th>Mobile</th>
+	  			<th>Email</th>
+					<th>City</th>
+					<th>County</th>
+	  			<th>Actions</th>
+	  		</tr><br>
+	  	</table><br>
+		</div>
+  </div>
+  <footer id="about" class="site-footer bg-dark" role="contentinfo">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-4 mb-5">
+          <h3>About Us</h3>
+          <p>
+Jenga Nchi is your one stop shop for the largest selection of open jobs, insights into the East African job market, tailored career advice and skill training. With us, you get exactly what you need to pursue your professional goals.
+</p>
+          <ul class="list-unstyled footer-link d-flex footer-social">
+            <li><a href="#" class="p-2"><span class="fa fa-twitter"></span></a></li>
+            <li><a href="#" class="p-2"><span class="fa fa-facebook"></span></a></li>
+            <li><a href="#" class="p-2"><span class="fa fa-linkedin"></span></a></li>
+            <li><a href="#" class="p-2"><span class="fa fa-instagram"></span></a></li>
+          </ul>
         </div>
-        <div class="row">
-          <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="100">
-<div class="zoom">
-            <div class="jumbotron">
-              <a href="employees.html" class="h-100 feature-item">
-                <span class="d-block icon flaticon-calculator mb-3 text-success"></span>
-                <p>Plumber</p>
-              </a>
-</div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="200">
-<div class="zoom">
-            <div class="jumbotron">
-              <a href="employees.html" class="h-100 feature-item">
-                <span class="d-block icon flaticon-wrench mb-3 text-secondary"></span>
-                <p>Supplier</p>
-              </a>
-</div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="300">
-<div class="zoom">
-            <div class="jumbotron">
-              <a href="employees.html" class="h-100 feature-item">
-                <span class="d-block icon flaticon-worker mb-3"></span>
-                <p>Architect</p>
-              </a>
-</div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="400">
-<div class="zoom">
-            <div class="jumbotron">
-              <a href="employees.html" class="h-100 feature-item">
-                <span class="d-block icon flaticon-telecommunications mb-3 text-success"></span>
-                <p>Electrician</p>
-              </a>
-</div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="500">
-<div class="zoom">
-            <div class="jumbotron">
-              <a href="employees.html" class="h-100 feature-item">
-                <span class="d-block icon flaticon-stethoscope mb-3 text-success"></span>
-                <p>Building Contracters</p>
-              </a>
-</div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="600">
-            <div class="zoom">
-              <div class="jumbotron">
-              <a href="employees.html" class="h-100 feature-item">
-                <span class="d-block icon flaticon-computer-graphic mb-3 text-success"></span>
-                <p>Interior Designers</p>
-              </a>
-</div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="700">
-<div class="zoom">
-            <div class="jumbotron">
-              <a href="employees.html" class="h-100 feature-item">
-                <span class="d-block icon flaticon-trolley mb-3 text-success"></span>
-                <p>Landscaper</p>
-              </a>
-</div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="800">
-<div class="zoom">
-            <div class="jumbotron">
-              <a href="employees.html" class="h-100 feature-item">
-                <span class="d-block icon flaticon-restaurant mb-3 text-success"></span>
-                <p>Caterer</p>
-              </a>
-</div>
-            </div>
-          </div>
+        <div class="col-md-5 mb-5">
+          <h3>Contact Info</h3>
+          <ul class="list-unstyled footer-link">
+            <li class="d-block">
+              <span class="d-block">Address:</span>
+              <span class="text-white">Nairobi 709</span></li>
+            <li class="d-block"><span class="d-block">Telephone:</span><span class="text-white">+2547 678 543</span></li>
+            <li class="d-block"><span class="d-block">Email:</span><span class="text-white">info@jenganchi.com</span></li>
+          </ul>
         </div>
-      </div>
-<div class="container">
-      <div class="form-group" id="address">
-          <h3>Delivery Address</h3>
-          <form id="address-form">
-            <div class="row">
-              <div class="col">
-                <label for="first-name">First Name</label><input required type="text" class="form-control address-spacing">
-              </div>
-              <div class="col">
-                <label for="last-name">Last Name</label><input required type="text" class="form-control address-spacing">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <label for="street-address">Address</label><input required type="text" class="form-control" id="street-add">
-              </div>
-              <div class="col">
-                <label for="city-name">City</label><input required type="text" class="form-control" id="city-add">
-              </div>
-              <div class="col">
-                <label for="county-name">County</label>
-                <select required class="form-control delivery-address" id="county-select">
-                  <option></option>
-                  <option>Nairobi</option>
-                  <option>Nakuru</option>
-                  <option>Mombasa</option>
-                </select>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary" id="order-proceed-btn">Submit</button>
-          </form>
+        <div class="col-md-3 mb-5">
+          <h3>Quick Menu</h3>
+          <ul class="list-unstyled footer-link">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="categories.html">For Jobs</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
         </div>
       </div>
     </div>
-    <footer id="about" class="site-footer bg-dark" role="contentinfo">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-4 mb-5">
-            <h3>About Us</h3>
-            <p Jenga Nchi is your one stop shop for the largest selection of open jobs, insights into the East African job market, tailored career advice and skill training. With us, you get exactly what you need to pursue your professional goals.
+  </footer>
 
-</p>
-            <ul class="list-unstyled footer-link d-flex footer-social">
-              <li><a href="#" class="p-2"><span class="fa fa-twitter"></span></a></li>
-              <li><a href="#" class="p-2"><span class="fa fa-facebook"></span></a></li>
-              <li><a href="#" class="p-2"><span class="fa fa-linkedin"></span></a></li>
-              <li><a href="#" class="p-2"><span class="fa fa-instagram"></span></a></li>
-            </ul>
-          </div>
-          <div class="col-md-5 mb-5">
-            <h3>Contact Info</h3>
-            <ul class="list-unstyled footer-link">
-              <li class="d-block">
-                <span class="d-block">Address:</span>
-                <span class="text-white">de</span></li>
-              <li class="d-block"><span class="d-block">Telephone:</span><span class="text-white">+254 789 999 999</span></li>
-              <li class="d-block"><span class="d-block">Email:</span><span class="text-white">info@jendanchi.com</span></li>
-            </ul>
-          </div>
-          <div class="col-md-3 mb-5">
-            <h3>Quick Menu</h3>
-            <ul class="list-unstyled footer-link">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="categories.html">For Candidates</a></li>
-              <li><a href="employees.html">For Employers</a></li>
-              <li><a href="#about">About</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-</body>
+
+
 <script src="js/scripts.js"></script>
+<script>
+  var Contacts = {
+    index: window.localStorage.getItem("Contacts:index"),
+    $table: document.getElementById("contacts-table"),
+    $form: document.getElementById("contacts-form"),
+    $button_save: document.getElementById("contacts-op-save"),
+    $button_discard: document.getElementById("contacts-op-discard"),
+
+    init: function() {
+      // initialize storage index
+      if (!Contacts.index) {
+        window.localStorage.setItem("Contacts:index", Contacts.index = 1);
+      }
+
+      // initialize form
+      Contacts.$form.reset();
+      Contacts.$button_discard.addEventListener("click", function(event) {
+        Contacts.$form.reset();
+        Contacts.$form.id_entry.value = 0;
+      }, true);
+      Contacts.$form.addEventListener("submit", function(event) {
+        var entry = {
+          id: parseInt(this.id_entry.value),
+          first_name: this.first_name.value,
+          last_name: this.last_name.value,
+          specification: this.specification.value,
+          mobile: this.mobile.value,
+          email: this.email.value,
+          city: this.city.value,
+          county: this.county.value
+        };
+        if (entry.id == 0) { // add
+          Contacts.storeAdd(entry);
+          Contacts.tableAdd(entry);
+        }
+        else { // edit
+          Contacts.storeEdit(entry);
+          Contacts.tableEdit(entry);
+        }
+
+        this.reset();
+        this.id_entry.value = 0;
+        event.preventDefault();
+      }, true);
+
+      // initialize table
+      if (window.localStorage.length - 1) {
+        var contacts_list = [], i, key;
+        for (i = 0; i < window.localStorage.length; i++) {
+          key = window.localStorage.key(i);
+          if (/Contacts:\d+/.test(key)) {
+            contacts_list.push(JSON.parse(window.localStorage.getItem(key)));
+          }
+        }
+
+        if (contacts_list.length) {
+          contacts_list
+            .sort(function(a, b) {
+              return a.id < b.id ? -1 : (a.id > b.id ? 1 : 0);
+            })
+            .forEach(Contacts.tableAdd);
+        }
+      }
+      Contacts.$table.addEventListener("click", function(event) {
+        var op = event.target.getAttribute("data-op");
+        if (/edit|remove/.test(op)) {
+          var entry = JSON.parse(window.localStorage.getItem("Contacts:"+ event.target.getAttribute("data-id")));
+          if (op == "edit") {
+            Contacts.$form.first_name.value = entry.first_name;
+            Contacts.$form.last_name.value = entry.last_name;
+            Contacts.$form.specification.value = entry.specification;
+            Contacts.$form.mobile.value = entry.mobile;
+            Contacts.$form.email.value = entry.email;
+            Contacts.$form.city.value = entry.city;
+            Contacts.$form.county.value = entry.county;
+            Contacts.$form.id_entry.value = entry.id;
+          }
+          else if (op == "remove") {
+            if (confirm('Are you sure you want to remove "'+ entry.first_name +' '+ entry.last_name +'" from your contacts?')) {
+              Contacts.storeRemove(entry);
+              Contacts.tableRemove(entry);
+            }
+          }
+          event.preventDefault();
+        }
+      }, true);
+    },
+
+    storeAdd: function(entry) {
+      entry.id = Contacts.index;
+      window.localStorage.setItem("Contacts:index", ++Contacts.index);
+      window.localStorage.setItem("Contacts:"+ entry.id, JSON.stringify(entry));
+    },
+    storeEdit: function(entry) {
+      window.localStorage.setItem("Contacts:"+ entry.id, JSON.stringify(entry));
+    },
+    storeRemove: function(entry) {
+      window.localStorage.removeItem("Contacts:"+ entry.id);
+    },
+
+    tableAdd: function(entry) {
+      var $tr = document.createElement("tr"), $td, key;
+      for (key in entry) {
+        if (entry.hasOwnProperty(key)) {
+          $td = document.createElement("td");
+          $td.appendChild(document.createTextNode(entry[key]));
+          $tr.appendChild($td);
+        }
+      }
+      $td = document.createElement("td");
+      $td.innerHTML = '<a data-op="edit" data-id="'+ entry.id +'">Edit</a> | <a data-op="remove" data-id="'+ entry.id +'">Remove</a>';
+      $tr.appendChild($td);
+      $tr.setAttribute("id", "entry-"+ entry.id);
+      Contacts.$table.appendChild($tr);
+    },
+    tableEdit: function(entry) {
+      var $tr = document.getElementById("entry-"+ entry.id), $td, key;
+      $tr.innerHTML = "";
+      for (key in entry) {
+        if (entry.hasOwnProperty(key)) {
+          $td = document.createElement("td");
+          $td.appendChild(document.createTextNode(entry[key]));
+          $tr.appendChild($td);
+        }
+      }
+      $td = document.createElement("td");
+      $td.innerHTML = '<a data-op="edit" data-id="'+ entry.id +'">Edit</a> | <a data-op="remove" data-id="'+ entry.id +'">Remove</a>';
+      $tr.appendChild($td);
+    },
+    tableRemove: function(entry) {
+      Contacts.$table.removeChild(document.getElementById("entry-"+ entry.id));
+    }
+  };
+  Contacts.init();
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="js/scripts.js"></script>
+</body>
 </html>
